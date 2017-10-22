@@ -1,2 +1,20 @@
-<h1>Foods!</h1>
-
+<h1>See all foods here!</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Liat deh makanannya, enak kan pasti mau kan laper ya yey</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= link_to 'Delete food', food_path(id: food.id), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<p><b>PS:</b> Hayo, mau makan kan, ayo makan bareng aku plis dong plis ayo.</p>
+  
+<p>This all possible because of:</p>
+<img src="http://nussucommit.com/home/wp-content/uploads/2017/08/25thmc-herbert.jpg" alt="Panutan">

@@ -52,3 +52,595 @@ Processing by FoodsController#index as HTML
 Completed 200 OK in 856ms (Views: 840.6ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (43.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (17.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7665725046028169085)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRestaurantReviews (20171008084850)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (21.9ms)[0m  [1m[35mCREATE TABLE "restaurant_reviews" ("id" bigserial primary key, "rating" integer, "review" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171008084850"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRestaurants (20171008084856)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "restaurants" ("id" bigserial primary key, "name" character varying, "address" character varying, "start_hour" time, "end_hour" time, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171008084856"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20171008084859)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171008084859"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFoods (20171008084923)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "foods" ("id" bigserial primary key, "name" character varying, "string" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171008084923"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-22 06:33:41.524498"], ["updated_at", "2017-10-22 06:33:41.524498"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7665725046028169085)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 14:36:58 +0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  Rendered foods/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 305ms (Views: 276.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 14:42:42 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  Rendered foods/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 27ms (Views: 25.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 14:48:26 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (6.1ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (38.8ms)
+Completed 200 OK in 84ms (Views: 76.3ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 14:48:28 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (3.1ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 34ms (Views: 30.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 14:48:48 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.3ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 14:49:10 +0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.4ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 275ms (Views: 257.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 14:49:14 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (2.5ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 50ms (Views: 41.1ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 14:49:15 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 47ms (Views: 45.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 14:49:16 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (5.0ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 94ms (Views: 86.1ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 14:50:20 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.4ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 64ms (Views: 62.3ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "foods" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Salted Egg Chicken Rice"], ["created_at", "2017-10-22 06:55:40.527515"], ["updated_at", "2017-10-22 06:55:40.527515"]]
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 14:55:47 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.3ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (235.6ms)
+Completed 500 Internal Server Error in 244ms (ActiveRecord: 2.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `book' for #<#<Class:0x007f6160228d28>:0x007f6159fe2fb0>):
+     8:   <tbody>
+     9:     <% @foods.each do |food| %>
+    10:       <tr>
+    11:         <td><%= book.name %></td>
+    12:       </tr>
+    13:     <% end %>
+    14:   </tbody>
+  
+app/views/foods/index.html.erb:11:in `block in _app_views_foods_index_html_erb___2010892396572825982_70028100717280'
+app/views/foods/index.html.erb:9:in `_app_views_foods_index_html_erb___2010892396572825982_70028100717280'
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 14:56:01 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (1.0ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (328.4ms)
+Completed 500 Internal Server Error in 332ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `book' for #<#<Class:0x007f6160228d28>:0x007f615974f9e8>):
+     8:   <tbody>
+     9:     <% @foods.each do |food| %>
+    10:       <tr>
+    11:         <td><%= book.name %></td>
+    12:       </tr>
+    13:     <% end %>
+    14:   </tbody>
+  
+app/views/foods/index.html.erb:11:in `block in _app_views_foods_index_html_erb___2010892396572825982_70028133540740'
+app/views/foods/index.html.erb:9:in `_app_views_foods_index_html_erb___2010892396572825982_70028133540740'
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 14:57:17 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 14:59:16 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 41ms (Views: 40.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/foods/new" for 127.0.0.1 at 2017-10-22 15:11:36 +0800
+Processing by FoodsController#new as HTML
+  [1m[36mFood Load (0.1ms)[0m  [1m[34mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 21ms (ActiveRecord: 2.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Food with 'id'=):
+  
+app/controllers/foods_controller.rb:7:in `new'
+Started GET "/foods/new" for 127.0.0.1 at 2017-10-22 15:12:46 +0800
+Processing by FoodsController#new as HTML
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/new.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/hugo/food-directory/app/views/foods/new.html.erb:10: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+                ^):
+  
+app/views/foods/new.html.erb:10: syntax error, unexpected keyword_ensure, expecting keyword_end
+Started GET "/foods/new" for 127.0.0.1 at 2017-10-22 15:12:48 +0800
+Processing by FoodsController#new as HTML
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/new.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/hugo/food-directory/app/views/foods/new.html.erb:10: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+                ^):
+  
+app/views/foods/new.html.erb:10: syntax error, unexpected keyword_ensure, expecting keyword_end
+Started GET "/foods/new" for 127.0.0.1 at 2017-10-22 15:14:28 +0800
+Processing by FoodsController#new as HTML
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/new.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 46ms (Views: 45.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/foods/new" for 127.0.0.1 at 2017-10-22 15:15:00 +0800
+Processing by FoodsController#new as HTML
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/new.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 55ms (Views: 53.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/foods/new" for 127.0.0.1 at 2017-10-22 15:15:37 +0800
+Processing by FoodsController#new as HTML
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 29ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/foods/new" for 127.0.0.1 at 2017-10-22 15:15:54 +0800
+Processing by FoodsController#new as HTML
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 29ms (Views: 27.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 15:21:26 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (1.3ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 26ms (Views: 23.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/foods/new" for 127.0.0.1 at 2017-10-22 15:24:50 +0800
+  
+SyntaxError (/home/hugo/food-directory/app/controllers/foods_controller.rb:19: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/foods_controller.rb:19: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/foods/new" for 127.0.0.1 at 2017-10-22 15:25:15 +0800
+Processing by FoodsController#new as HTML
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 46ms (Views: 30.4ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/foods" for 127.0.0.1 at 2017-10-22 15:25:39 +0800
+Processing by FoodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2Y5SyLGuuRnObRE/WHAtaPUp/FBFkaI3b92NKrv8H4BNDEZ/4PfALj6e2oGNUyiZX+mUjaMYXVMd0Dxq1IpMbw==", "food"=>{"name"=>"Kripik Singkong Telur Asin"}, "commit"=>"Create"}
+Completed 500 Internal Server Error in 180ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `food_params' for #<FoodsController:0x007f616225f3a8>
+Did you mean?  foods_path):
+  
+app/controllers/foods_controller.rb:11:in `create'
+Started POST "/foods" for 127.0.0.1 at 2017-10-22 15:27:12 +0800
+Processing by FoodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2Y5SyLGuuRnObRE/WHAtaPUp/FBFkaI3b92NKrv8H4BNDEZ/4PfALj6e2oGNUyiZX+mUjaMYXVMd0Dxq1IpMbw==", "food"=>{"name"=>"Kripik Singkong Telur Asin"}, "commit"=>"Create"}
+  [1m[35m (4.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "foods" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Kripik Singkong Telur Asin"], ["created_at", "2017-10-22 07:27:12.490264"], ["updated_at", "2017-10-22 07:27:12.490264"]]
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/foods
+Completed 302 Found in 19ms (ActiveRecord: 11.3ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 15:27:12 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (1.5ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 40ms (Views: 37.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/foods/edit" for 127.0.0.1 at 2017-10-22 15:43:30 +0800
+Processing by FoodsController#edit as HTML
+  [1m[36mFood Load (0.1ms)[0m  [1m[34mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 6ms (ActiveRecord: 2.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Food with 'id'=):
+  
+app/controllers/foods_controller.rb:21:in `edit'
+Started GET "/foods/edit" for 127.0.0.1 at 2017-10-22 15:44:16 +0800
+Processing by FoodsController#edit as HTML
+  [1m[36mFood Load (3.5ms)[0m  [1m[34mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 9ms (ActiveRecord: 3.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Food with 'id'=):
+  
+app/controllers/foods_controller.rb:21:in `edit'
+Started GET "/foods/edit" for 127.0.0.1 at 2017-10-22 15:45:29 +0800
+Processing by FoodsController#edit as HTML
+  [1m[36mFood Load (0.3ms)[0m  [1m[34mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Food with 'id'=):
+  
+app/controllers/foods_controller.rb:21:in `edit'
+Started GET "/foods/edit" for 127.0.0.1 at 2017-10-22 15:45:31 +0800
+Processing by FoodsController#edit as HTML
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Food with 'id'=):
+  
+app/controllers/foods_controller.rb:21:in `edit'
+Started GET "/foods/edit" for 127.0.0.1 at 2017-10-22 15:48:06 +0800
+Processing by FoodsController#edit as HTML
+  [1m[36mFood Load (2.4ms)[0m  [1m[34mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 13ms (ActiveRecord: 5.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Food with 'id'=):
+  
+app/controllers/foods_controller.rb:21:in `edit'
+Started GET "/foods/edit" for 127.0.0.1 at 2017-10-22 15:48:07 +0800
+Processing by FoodsController#edit as HTML
+  [1m[36mFood Load (0.1ms)[0m  [1m[34mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Food with 'id'=):
+  
+app/controllers/foods_controller.rb:21:in `edit'
+Started GET "/foods/edit/1" for 127.0.0.1 at 2017-10-22 15:50:57 +0800
+Processing by FoodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFood Load (2.5ms)[0m  [1m[34mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering foods/edit.html.erb within layouts/application
+  Rendered foods/edit.html.erb within layouts/application (147.0ms)
+Completed 500 Internal Server Error in 172ms (ActiveRecord: 4.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `food_path' for #<#<Class:0x007f6161736d78>:0x007f6161735040>
+Did you mean?  foods_path
+               font_path):
+    1: <%= form_for @food do |f| %>
+    2:   <p>Yah, kok diganti sih kenapa kenapa yah</p>
+    3:   <p>
+    4:   <%= f.label :name %>
+  
+app/views/foods/edit.html.erb:1:in `_app_views_foods_edit_html_erb___3395892870283325489_70028111756040'
+Started GET "/asdf" for 127.0.0.1 at 2017-10-22 15:51:46 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/asdf"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/asdf" for 127.0.0.1 at 2017-10-22 15:52:05 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/asdf"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/foods/edit/1" for 127.0.0.1 at 2017-10-22 15:52:35 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/foods/edit/1"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/foods/1/edit" for 127.0.0.1 at 2017-10-22 15:52:40 +0800
+Processing by FoodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFood Load (0.7ms)[0m  [1m[34mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering foods/edit.html.erb within layouts/application
+  Rendered foods/edit.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 52ms (Views: 31.4ms | ActiveRecord: 7.5ms)
+
+
+Started PATCH "/foods/1" for 127.0.0.1 at 2017-10-22 15:52:49 +0800
+Processing by FoodsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UtDTMJRPVBiSY+uvdkF7zlkZsYCeiErH19FzMG4uw5LGUseHxRYtL2KQIBGjYn4/89nZXXgBtaOl3MJwAViQfQ==", "food"=>{"name"=>"Salted Egg Chicken Rice 23"}, "commit"=>"Edit", "id"=>"1"}
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "foods" SET "name" = $1, "updated_at" = $2 WHERE "foods"."id" = $3[0m  [["name", "Salted Egg Chicken Rice 23"], ["updated_at", "2017-10-22 07:52:49.927968"], ["id", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/foods
+Completed 302 Found in 6ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 15:52:49 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (1.8ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 29ms (Views: 26.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/foods/1/edit" for 127.0.0.1 at 2017-10-22 15:54:05 +0800
+Processing by FoodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFood Load (1.1ms)[0m  [1m[34mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering foods/edit.html.erb within layouts/application
+  Rendered foods/edit.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 52ms (Views: 38.5ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/foods/1" for 127.0.0.1 at 2017-10-22 15:54:12 +0800
+Processing by FoodsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jUloJxqMxtFXl/10NN2VD7Q9JuUk1ehFV170AMrQNEkZy3yQS9W/5qdkNsrh/pD+Hv1OOMJcFyElU0VApaZnpg==", "food"=>{"name"=>"Salted Egg Chicken Rice"}, "commit"=>"Edit", "id"=>"1"}
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[33mUPDATE "foods" SET "name" = $1, "updated_at" = $2 WHERE "foods"."id" = $3[0m  [["name", "Salted Egg Chicken Rice"], ["updated_at", "2017-10-22 07:54:12.779055"], ["id", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/foods
+Completed 302 Found in 6ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 15:54:12 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.6ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 38ms (Views: 36.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/foods/new" for 127.0.0.1 at 2017-10-22 15:54:18 +0800
+Processing by FoodsController#new as HTML
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 36ms (Views: 35.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/foods" for 127.0.0.1 at 2017-10-22 15:54:25 +0800
+Processing by FoodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ocapbLJwE0X+5oGhmCMd5C2HlAhIc4AjxzEEyjSHdXY1RL3b4ylqcg4VSh9NABgVh0f81a76f0e1PLWKW/EmmQ==", "food"=>{"name"=>"Nasi Tai"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "foods" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Nasi Tai"], ["created_at", "2017-10-22 07:54:25.609181"], ["updated_at", "2017-10-22 07:54:25.609181"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/foods
+Completed 302 Found in 5ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 15:54:25 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 29ms (Views: 28.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 15:56:11 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 42ms (Views: 32.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/foods/" for 127.0.0.1 at 2017-10-22 15:56:20 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.4ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 31ms (Views: 30.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/foods/" for 127.0.0.1 at 2017-10-22 16:03:15 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 37ms (Views: 35.0ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/foods/3" for 127.0.0.1 at 2017-10-22 16:03:24 +0800
+Processing by FoodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"E/rstWhvPuUoaY/A5ZDmuZJLq8oRgq6F4xmNUmoG3zyHePgCOTZH0tiaRH4ws+NIOIvDF/cLUeGRFDwSBXCM0w==", "id"=>"3"}
+Completed 500 Internal Server Error in 255ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `parans' for #<FoodsController:0x007f61617a1a88>
+Did you mean?  params
+               params=
+               @_params):
+  
+app/controllers/foods_controller.rb:34:in `destroy'
+Started DELETE "/foods/3" for 127.0.0.1 at 2017-10-22 16:04:43 +0800
+Processing by FoodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"E/rstWhvPuUoaY/A5ZDmuZJLq8oRgq6F4xmNUmoG3zyHePgCOTZH0tiaRH4ws+NIOIvDF/cLUeGRFDwSBXCM0w==", "id"=>"3"}
+  [1m[36mFood Load (0.3ms)[0m  [1m[34mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "foods" WHERE "foods"."id" = $1[0m  [["id", 3]]
+  [1m[35m (6.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/foods
+Completed 302 Found in 23ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2017-10-22 16:04:43 +0800
+Processing by FoodsController#index as HTML
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.7ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 33ms (Views: 31.6ms | ActiveRecord: 0.7ms)
+
+
