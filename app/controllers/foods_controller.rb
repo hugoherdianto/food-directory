@@ -1,8 +1,14 @@
+# frozen_string_literal: true
+
 class FoodsController < ApplicationController
-	def index
-		@foods = Food.all
-	end
-  
+  def index
+    @foods = Food.all
+  end
+
+  def show
+    @food= Food.find(params[:id])
+  end
+
   def new
     @food = Food.new
   end
@@ -39,4 +45,3 @@ class FoodsController < ApplicationController
     params.require(:food).permit(:name)
   end
 end
-
