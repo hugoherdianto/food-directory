@@ -16,6 +16,14 @@ RSpec.describe FoodsController, type: :controller do
     end
   end
 
+  describe '#new' do
+    it 'does it successfully' do
+      food = Food.create(name: 'Makanan')
+      get :show, params: { id: food.id }
+      expect(response).to have http_status :ok
+    end
+  end
+
   describe '#create' do
     it 'does it successfully, with a food created' do
       food_params = { name: 'Makanan' }
@@ -23,5 +31,19 @@ RSpec.describe FoodsController, type: :controller do
       expect(Food.where(food_params).length).to be 1
       expect(response).to redirect_to foods_path
     end
+  end
+
+  describe '#edit' do
+    it 'does it successfully' do
+      food = Food.create(name: 'Makanan')
+      get :show, params: { id: food.id }
+      expect(response).to have http_status :ok
+    end
+  end
+
+  describe '#update' do
+  end
+
+  describe '#destroy' do
   end
 end
