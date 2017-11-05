@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -15,12 +16,10 @@ class User < ApplicationRecord
   has_many :restaurant_reviews
 
   def authenticate(password)
-    BCrypt::Password.new(self.hashed_password) == password
+    BCrypt::Password.new(hashed_password) == password
   end
 
-  def password
-    @password
-  end
+  attr_reader :password
 
   def password=(password)
     @password = password

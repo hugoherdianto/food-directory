@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
   before_action :check_logged_in
 
   def check_logged_in
-    if session[:name].nil?
-      redirect_to new_session_path
-    end
+    redirect_to login_path if session[:name].nil?
   end
 end

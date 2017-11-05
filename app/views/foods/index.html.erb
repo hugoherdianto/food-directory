@@ -10,6 +10,7 @@
       <tr>
         <td><%= food.name %></td>
         <td><%= link_to 'Delete food', food_path(id: food.id), method: :delete %></td>
+        <td><%= link_to 'Edit food', edit_food_path(id: food.id) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -18,3 +19,5 @@
   
 <p>This all possible because of:</p>
 <img src="http://nussucommit.com/home/wp-content/uploads/2017/08/25thmc-herbert.jpg" alt="Panutan">
+
+<p><%= link_to 'Log Out', logout_path, method: :delete %></p>

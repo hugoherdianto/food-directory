@@ -1,6 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe FoodsController, type: :controller do
+  before do
+    session[:name] = 'apapun'
+  end
+
   describe '#index' do
     it 'does it successfully' do
       get :index
@@ -19,8 +25,8 @@ RSpec.describe FoodsController, type: :controller do
   describe '#new' do
     it 'does it successfully' do
       food = Food.create(name: 'Makanan')
-      get :show, params: { id: food.id }
-      expect(response).to have http_status :ok
+      get :new, params: { id: food.id }
+      expect(response).to have_http_status :ok
     end
   end
 
@@ -36,12 +42,19 @@ RSpec.describe FoodsController, type: :controller do
   describe '#edit' do
     it 'does it successfully' do
       food = Food.create(name: 'Makanan')
-      get :show, params: { id: food.id }
-      expect(response).to have http_status :ok
+      get :edit, params: { id: food.id }
+      expect(response).to have_http_status :ok
     end
   end
 
   describe '#update' do
+    it 'does it successfully' do
+      food = Food.create(name: 'Makanan')
+      patch :update, params: { id: food.id, food: { name: 'Ilhan' } }
+
+      food.reload
+      expect(food.name).to eq 'Ilhan'
+    end
   end
 
   describe '#destroy' do
