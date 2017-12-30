@@ -1,0 +1,21 @@
+<h1>List of Restaurants</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <td><b>Name</b></td>
+      <td><b>Address</b></td>
+      <td><b>Opening Hour</b></td>
+      <td><b>Closing Hour</b></td>
+    </tr>
+    <% @restaurants.each do |r| %>
+      <tr>
+        <td><%= r.name %></td>
+        <td><%= r.address %></td>
+        <td><%= r.start_hour.strftime("%H:%M") %></td>
+        <td><%= r.end_hour.strftime("%H:%M")%></td>
+        <td><%= link_to 'Edit', edit_restaurant_path(id: r.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,13 @@
+<%= form_for @restaurant do |z| %>
+<h1>Edit Restaurant</h1>
+<p>
+<%= z.label :name %>
+<%= z.text_field :name %>
+</p>
+<p>
+<%= z.label :address %>
+<%= z.text_field :address %>
+</p>
+
+<%= z.submit 'Edit' %>
+<% end %>

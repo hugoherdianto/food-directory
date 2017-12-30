@@ -1,0 +1,21 @@
+<%= form_for @restaurant do |f| %>
+  <h1>New Restaurant</h1>
+  <p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  </p>
+  <p>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  </p> 
+  <p>
+  <%= f.label :start_hour %>
+  <%= f.time_select :start_hour, {:default => {:hour => '08', :minute => '00'}} %> 
+  </p>
+  <p>
+  <%= f.label :end_hour %>
+  <%= f.time_select :end_hour, {:default => {:hour => '20', :minute => '00'}} %> 
+  </p>
+
+  <%= f.submit 'Create' %>
+<% end %>

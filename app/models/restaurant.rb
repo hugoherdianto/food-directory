@@ -14,4 +14,5 @@
 #
 
 class Restaurant < ApplicationRecord
+  has_many :restaurant_reviews 
 end

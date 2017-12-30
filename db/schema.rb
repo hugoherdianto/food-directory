@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,38 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_171_029_065_645) do
+ActiveRecord::Schema.define(version: 20171122055108) do
+
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'foods', force: :cascade do |t|
-    t.string 'name'
-    t.string 'string'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "foods", force: :cascade do |t|
+    t.string "name"
+    t.string "string"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'restaurant_reviews', force: :cascade do |t|
-    t.integer 'rating'
-    t.string 'review'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "restaurant_reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.string "review"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "restaurant_id"
   end
 
-  create_table 'restaurants', force: :cascade do |t|
-    t.string 'name'
-    t.string 'address'
-    t.time 'start_hour'
-    t.time 'end_hour'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.time "start_hour"
+    t.time "end_hour"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'name'
-    t.string 'email'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.string 'hashed_password'
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "hashed_password"
   end
+
 end
